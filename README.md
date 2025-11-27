@@ -28,6 +28,28 @@ chmod +x setup_xcat.sh
 ./setup_xcat.sh
 ```
 
+# Configuration for rocky9.6
+
+Get the discinfo of rocky9.6 iso
+
+```bash
+# Install or copy rocky9.6 iso in your /tmp dir
+# mount the iso in to /tmp/iso/rocky9.6/
+mount  /tmp/Rocky-9.6-x86_64-dvd.iso /tmp/iso/rocky9.6/
+
+#get the disinfo
+cat /tmp/iso/rocky9.6/.discinfo | head -n 1
+# expample discinfo for rocky9.6 dvd iso is: 1748309243.9338255
+```
+
+Once you get the discinfo id add in /opt/xcat/lib/perl/xCAT/data/discinfo.pm file
+
+```bash
+#For rocky9.6 dvd iso 
+bash setup_disc info.sh
+```
+
+
 **[OR]**
 
 # You can manually setup the xcat on el9 
