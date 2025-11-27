@@ -40,7 +40,7 @@ chmod +x /tmp/go-xcat
 **`Step2: Run the go-xcat tool:`**
 
 ```jsx
-/tmp/go-xcat -x install
+/tmp/go-xcat -x latest install -y
 ```
 
 NOTE: 
@@ -96,9 +96,11 @@ xcatconfig -i -c -s
 ```
 
 **Step7.**
-**`Check the xCAT version:`**  
+**`Restart the xcatd service and Check the xCAT version:`**  
 
 ```jsx
+restartxcatd
+
 lsxcatd -a
 ```
 
