@@ -28,7 +28,7 @@ chmod +x setup_xcat.sh
 ./setup_xcat.sh
 ```
 
-# Configuration for rocky9.6
+# Osimage configuration (copycds) for rocky9.6
 
 Get the discinfo of rocky9.6 iso
 
