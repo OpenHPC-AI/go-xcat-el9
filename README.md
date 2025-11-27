@@ -33,7 +33,7 @@ cd /tmp
 git clone  https://github.com/OpenHPC-AI/go-xcat-el9.git
 
 # Change the permission to execute
-chmod +x /tmp/go-xcat
+chmod +x /tmp/go-xcat-el9/go-xcat
 
 ```
 
