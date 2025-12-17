@@ -17,7 +17,6 @@ set -euo pipefail
 # Configuration (change if needed)
 # ----------------------------
 XCAT_VERSION="${1:-latest}"
-GO_XCAT_URL="https://raw.githubusercontent.com/xcat2/xcat-core/master/xCAT-server/share/xcat/tools/go-xcat"
 TMP_GO="/tmp/go-xcat"
 OPENSSL_FILE="/opt/xcat/share/xcat/ca/openssl.cnf.tmpl"
 OPENSSL_BACKUP_FILE="/opt/xcat/share/xcat/ca/openssl.cnf.tmpl.orig"
@@ -83,22 +82,18 @@ fi
 # 2) Ensure prerequisites for EL9 (initscripts etc.)
 # ----------------------------
 LOG "Ensuring prerequisites (initscripts, wget/curl) are installed..."
+ensure_pkg epel-release
 ensure_pkg initscripts
 ensure_pkg wget
 ensure_pkg ca-certificates
 
+# Enable repo of epel and crb
+dnf config-manager --set-enabled epel crb
+
 # ----------------------------
 # 3) Download and run go-xcat installer
 # ----------------------------
-LOG "Downloading go-xcat from $GO_XCAT_URL to $TMP_GO"
-if command -v wget >/dev/null 2>&1; then
-  wget -q -O "$TMP_GO" "$GO_XCAT_URL"
-elif command -v curl >/dev/null 2>&1; then
-  curl -sSL "$GO_XCAT_URL" -o "$TMP_GO"
-else
-  echo "Neither wget nor curl found; cannot download go-xcat."
-  exit 4
-fi
+cp -ar ./go-xcat "$TMP_GO"
 
 chmod +x "$TMP_GO"
 LOG "Running go-xcat installer (version: ${XCAT_VERSION})"
