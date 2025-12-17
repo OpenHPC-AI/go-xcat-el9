@@ -21,7 +21,8 @@ Solution:
 ```jsx
 yum remove xCAT
 ```
-# To Quickly fix Just run the setup_xcat.sh script 
+# To Install xcat on rhel9 
+The setup_xcat.sh script installs xCAT and resolves the OpenSSL and initscripts issues.
 
 ```bash
 chmod +x setup_xcat.sh
