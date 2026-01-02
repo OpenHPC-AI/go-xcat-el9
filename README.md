@@ -22,9 +22,15 @@ Solution:
 yum remove xCAT
 ```
 # To Install xcat on rhel9 
-The setup_xcat.sh script installs xCAT and resolves the OpenSSL and initscripts issues.
+
+# git clone the repo
+
+
 
 ```bash
+git clone https://github.com/OpenHPC-AI/install-xCAT-rhel9.git
+cd install-xCAT-rhel9
+#The setup_xcat.sh script installs xCAT and resolves the OpenSSL and initscripts issues.
 chmod +x setup_xcat.sh
 ./setup_xcat.sh
 ```
